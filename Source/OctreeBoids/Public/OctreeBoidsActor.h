@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+ï»¿// Fill out your copyright notice in the Description page of Project Settings.
 
 #pragma once
 
@@ -8,7 +8,7 @@
 #include "OctreeBoidsActor.generated.h"
 
 /**
- * ”ª•ª–Ø‚ğg—p‚µ‚½ƒ{ƒCƒhƒVƒ~ƒ…ƒŒ[ƒVƒ‡ƒ“
+ * å…«åˆ†æœ¨ã‚’ä½¿ç”¨ã—ãŸãƒœã‚¤ãƒ‰ã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³
  */
 UCLASS()
 class OCTREEBOIDS_API AOctreeBoidsActor : public AActor

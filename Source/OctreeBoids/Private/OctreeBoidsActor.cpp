@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+ï»¿// Fill out your copyright notice in the Description page of Project Settings.
 
 
 #include "OctreeBoidsActor.h"
@@ -6,14 +6,14 @@
 
 #define FAST_BOID_DEBUG_DRAW false
 
-//! ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+//! ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
 //*****************************************************************************
 AOctreeBoidsActor::AOctreeBoidsActor()
 {
 	PrimaryActorTick.bCanEverTick = true;
 }
 
-//! ƒfƒXƒgƒ‰ƒNƒ^
+//! ãƒ‡ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
 //*****************************************************************************
 AOctreeBoidsActor::~AOctreeBoidsActor()
 {
@@ -25,7 +25,7 @@ AOctreeBoidsActor::~AOctreeBoidsActor()
 	}
 }
 
-//! ŠJn
+//! é–‹å§‹
 //*****************************************************************************
 void AOctreeBoidsActor::BeginPlay()
 {
@@ -57,7 +57,7 @@ void AOctreeBoidsActor::BeginPlay()
 	}
 }
 
-//! XV
+//! æ›´æ–°
 //*****************************************************************************
 void AOctreeBoidsActor::Tick(float DeltaTime)
 {
@@ -74,7 +74,7 @@ void AOctreeBoidsActor::Tick(float DeltaTime)
 	}
 }
 
-//! ƒ{ƒCƒhXV
+//! ãƒœã‚¤ãƒ‰æ›´æ–°
 //*****************************************************************************
 void AOctreeBoidsActor::UpdateBoids(float DeltaTime)
 {
@@ -87,18 +87,18 @@ void AOctreeBoidsActor::UpdateBoids(float DeltaTime)
 	{
 		FVector position = boid.Position;
 
-		// êŠO‚Ö‚ÌˆÚ“®‚ğ–h‚®
+		// å ´å¤–ã¸ã®ç§»å‹•ã‚’é˜²ã
 		FVector wallAvoidanceForce = CalculateWallAvoidanceForce(position, MyOctree->GetBoundary(), 10.0f);
 		boid.Accel += wallAvoidanceForce;
 
-		// ƒ{ƒCƒh‚Ì‹““®
+		// ãƒœã‚¤ãƒ‰ã®æŒ™å‹•
 		FVector separation = FVector(0);
 		FVector alignment = FVector(0);
 		FVector cohesion = FVector(0);
 
 		int numNeighbors = 0;
 
-		// ‹ß–Tƒ{ƒCƒh‚ÌŒŸõ
+		// è¿‘å‚ãƒœã‚¤ãƒ‰ã®æ¤œç´¢
 		TArray<FPoint> found;
 		MyOctree->Query(FBoxNode(position, FVector(NeighborDist)), found);
 
@@ -111,7 +111,7 @@ void AOctreeBoidsActor::UpdateBoids(float DeltaTime)
 			float prod = FVector::DotProduct(fwd, dir);
 			float distance = FVector::Distance(position, other);
 
-			// Šp“x‚Æ‹——£‚Å‹ß–Tƒ{ƒCƒh‚Æ”»’è
+			// è§’åº¦ã¨è·é›¢ã§è¿‘å‚ãƒœã‚¤ãƒ‰ã¨åˆ¤å®š
 			if ((prod > CosAngleThreshold) && (distance <= NeighborDist))
 			{
 				separation += (position - other).GetSafeNormal();
@@ -130,15 +130,15 @@ void AOctreeBoidsActor::UpdateBoids(float DeltaTime)
 
 		if (numNeighbors > 0)
 		{
-			// •ª—£
+			// åˆ†é›¢
 			separation /= numNeighbors;
 			boid.Accel += separation * SeparationWeight;
 
-			// ®—ñ
+			// æ•´åˆ—
 			alignment /= numNeighbors;
 			boid.Accel += (alignment - boid.Velocity) * AlignmentWeight;
 
-			// Œ‹‘©
+			// çµæŸ
 			cohesion /= numNeighbors;
 			boid.Accel += (cohesion - position) * CohesionWeight;
 		}
@@ -155,7 +155,7 @@ void AOctreeBoidsActor::UpdateBoids(float DeltaTime)
 
 		boid.Accel = FVector(0);
 
-		// ƒ{ƒCƒh‚Ì•`‰æ
+		// ãƒœã‚¤ãƒ‰ã®æç”»
 #if FAST_BOID_DEBUG_DRAW
 		FColor color = (cnt == 0 ? FColor::Red : FColor::Green);
 		UKismetSystemLibrary::DrawDebugPoint(GetWorld(), boid.Position, 4, color);
@@ -169,7 +169,7 @@ void AOctreeBoidsActor::UpdateBoids(float DeltaTime)
 #endif
 	}
 
-	// ”ª•ª–ØXV
+	// å…«åˆ†æœ¨æ›´æ–°
 	MyOctree->Clear();
 	for (auto& boid : Boids)
 	{
@@ -177,7 +177,7 @@ void AOctreeBoidsActor::UpdateBoids(float DeltaTime)
 	}
 }
 
-//! •Ç‰ñ”ğŒvZ
+//! å£å›é¿è¨ˆç®—
 //*****************************************************************************
 FVector AOctreeBoidsActor::CalculateWallAvoidanceForce(const FVector& position, const FBoxNode& boundary, float maxForce)
 {

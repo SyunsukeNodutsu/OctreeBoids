@@ -1,11 +1,11 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+ï»¿// Fill out your copyright notice in the Description page of Project Settings.
 
 #pragma once
 
 #include "CoreMinimal.h"
 
 /**
- * ”ª•ª–Ø‚ÉŠi”[‚·‚éƒ|ƒCƒ“ƒg
+ * å…«åˆ†æœ¨ã«æ ¼ç´ã™ã‚‹ãƒã‚¤ãƒ³ãƒˆ
  */
 struct FPoint
 {
@@ -17,13 +17,13 @@ struct FPoint
 
 	FVector Position = FVector(0);
 
-	// ƒ{ƒCƒh‚Åg—p
+	// ãƒœã‚¤ãƒ‰ã§ä½¿ç”¨
 	FVector Velocity = FVector(0);
 	FVector Accel = FVector(0);
 };
 
 /**
- * ƒ{ƒbƒNƒX
+ * ãƒœãƒƒã‚¯ã‚¹
  */
 struct FBoxNode
 {
@@ -53,7 +53,7 @@ struct FBoxNode
 };
 
 /**
- * ”ª•ª–Ø
+ * å…«åˆ†æœ¨
  */
 class OCTREEBOIDS_API Octree
 {

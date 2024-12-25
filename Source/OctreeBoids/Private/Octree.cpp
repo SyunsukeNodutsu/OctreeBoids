@@ -1,10 +1,10 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+ï»¿// Fill out your copyright notice in the Description page of Project Settings.
 
 
 #include "Octree.h"
 #include "Kismet/KismetSystemLibrary.h"
 
-//! ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+//! ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
 //*****************************************************************************
 Octree::Octree(FBoxNode boundary, int level, int capacity)
 {
@@ -13,7 +13,7 @@ Octree::Octree(FBoxNode boundary, int level, int capacity)
 	Capacity = capacity;
 }
 
-//! •ªŠ„
+//! åˆ†å‰²
 //*****************************************************************************
 void Octree::Subdivide()
 {
@@ -33,7 +33,7 @@ void Octree::Subdivide()
 	IsDivided = true;
 }
 
-//! ’Ç‰Á
+//! è¿½åŠ 
 //*****************************************************************************
 void Octree::Insert(FVector point)
 {
@@ -77,7 +77,7 @@ void Octree::Insert(FVector point)
 	}
 }
 
-//! ƒNƒŠƒA
+//! ã‚¯ãƒªã‚¢
 //*****************************************************************************
 void Octree::Clear()
 {
@@ -118,7 +118,7 @@ void Octree::Clear()
 	}
 }
 
-//! ”ÍˆÍ“à‚Ìƒ|ƒCƒ“ƒg‚ğæ“¾(ƒ{ƒbƒNƒX)
+//! ç¯„å›²å†…ã®ãƒã‚¤ãƒ³ãƒˆã‚’å–å¾—(ãƒœãƒƒã‚¯ã‚¹)
 //*****************************************************************************
 void Octree::Query(FBoxNode range, TArray<FPoint>& found)
 {
@@ -147,13 +147,13 @@ void Octree::Query(FBoxNode range, TArray<FPoint>& found)
 	}
 }
 
-//! ”ÍˆÍ“à‚Ìƒ|ƒCƒ“ƒg‚ğæ“¾(ƒT[ƒNƒ‹)
+//! ç¯„å›²å†…ã®ãƒã‚¤ãƒ³ãƒˆã‚’å–å¾—(ã‚µãƒ¼ã‚¯ãƒ«)
 //*****************************************************************************
 void Octree::Query(FVector center, float radius, TArray<FPoint>& found)
 {
 }
 
-//! ƒrƒWƒ…ƒAƒ‰ƒCƒY
+//! ãƒ“ã‚¸ãƒ¥ã‚¢ãƒ©ã‚¤ã‚º
 //*****************************************************************************
 void Octree::Visualize(const UObject* wcObject)
 {
